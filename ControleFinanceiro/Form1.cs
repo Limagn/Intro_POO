@@ -38,6 +38,9 @@ namespace ControleFinanceiro
             cliente.Nome = txtNome.Text;
             cliente.Cpf = txtCpf.Text;
             lstClientes.Items.Add(cliente.ToString());
+
+            txtNome.Clear();
+            txtCpf.Clear();
         }
     }
 }
