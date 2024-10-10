@@ -61,7 +61,18 @@ namespace ControleFinanceiro
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            if (lstClientes.SelectedItem != null)
+            {
 
+                lstClientes.Items.Remove(lstClientes.SelectedItem);
+
+                txtCpf.Clear();
+                txtNome.Clear();
+
+                MessageBox.Show("Item Excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnExcluir.Enabled = false;
+
+            }
         }
     }
 }
