@@ -40,43 +40,46 @@
             // lblNome
             // 
             lblNome.AutoSize = true;
-            lblNome.Location = new Point(69, 60);
+            lblNome.Location = new Point(79, 80);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(43, 15);
+            lblNome.Size = new Size(53, 20);
             lblNome.TabIndex = 0;
             lblNome.Text = "Nome:";
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(139, 57);
+            txtNome.Location = new Point(159, 76);
+            txtNome.Margin = new Padding(3, 4, 3, 4);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(100, 23);
+            txtNome.Size = new Size(114, 27);
             txtNome.TabIndex = 1;
             txtNome.TextChanged += txtNome_TextChanged;
             // 
             // txtCpf
             // 
-            txtCpf.Location = new Point(139, 102);
+            txtCpf.Location = new Point(159, 136);
+            txtCpf.Margin = new Padding(3, 4, 3, 4);
             txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(100, 23);
+            txtCpf.Size = new Size(114, 27);
             txtCpf.TabIndex = 3;
             txtCpf.TextChanged += txtCpf_TextChanged;
             // 
             // lblCpf
             // 
             lblCpf.AutoSize = true;
-            lblCpf.Location = new Point(69, 105);
+            lblCpf.Location = new Point(79, 140);
             lblCpf.Name = "lblCpf";
-            lblCpf.Size = new Size(31, 15);
+            lblCpf.Size = new Size(36, 20);
             lblCpf.TabIndex = 2;
             lblCpf.Text = "CPF:";
             // 
             // btnInserir
             // 
             btnInserir.Enabled = false;
-            btnInserir.Location = new Point(69, 152);
+            btnInserir.Location = new Point(79, 203);
+            btnInserir.Margin = new Padding(3, 4, 3, 4);
             btnInserir.Name = "btnInserir";
-            btnInserir.Size = new Size(75, 23);
+            btnInserir.Size = new Size(86, 31);
             btnInserir.TabIndex = 4;
             btnInserir.Text = "Inserir";
             btnInserir.UseVisualStyleBackColor = true;
@@ -85,27 +88,30 @@
             // btnExcluir
             // 
             btnExcluir.Enabled = false;
-            btnExcluir.Location = new Point(164, 152);
+            btnExcluir.Location = new Point(187, 203);
+            btnExcluir.Margin = new Padding(3, 4, 3, 4);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(75, 23);
+            btnExcluir.Size = new Size(86, 31);
             btnExcluir.TabIndex = 5;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // lstClientes
             // 
             lstClientes.FormattingEnabled = true;
-            lstClientes.ItemHeight = 15;
-            lstClientes.Location = new Point(69, 201);
+            lstClientes.Location = new Point(79, 268);
+            lstClientes.Margin = new Padding(3, 4, 3, 4);
             lstClientes.Name = "lstClientes";
-            lstClientes.Size = new Size(170, 94);
+            lstClientes.Size = new Size(194, 124);
             lstClientes.TabIndex = 6;
+            lstClientes.SelectedIndexChanged += lstClientes_SelectedIndexChanged;
             // 
             // frmCliente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(315, 332);
+            ClientSize = new Size(360, 443);
             Controls.Add(lstClientes);
             Controls.Add(btnExcluir);
             Controls.Add(btnInserir);
@@ -113,6 +119,7 @@
             Controls.Add(lblCpf);
             Controls.Add(txtNome);
             Controls.Add(lblNome);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmCliente";
             Text = "Controle de Clientes";
             Load += Form1_Load;

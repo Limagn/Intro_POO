@@ -38,9 +38,30 @@ namespace ControleFinanceiro
             cliente.Nome = txtNome.Text;
             cliente.Cpf = txtCpf.Text;
             lstClientes.Items.Add(cliente.ToString());
+            LimparCaixas();
+        }
 
+        private void LimparCaixas()
+        {
             txtNome.Clear();
             txtCpf.Clear();
+        }
+
+        private void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstClientes.SelectedIndex >= 0)
+            {
+                string[] itens = lstClientes.GetItemText(lstClientes.SelectedItem).Split(" - ");
+                txtNome.Text = itens[0];
+                txtCpf.Text = itens[1];
+                btnExcluir.Enabled = true;
+
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
