@@ -34,9 +34,7 @@ namespace ControleFinanceiro
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.Nome = txtNome.Text;
-            cliente.Cpf = txtCpf.Text;
+            Cliente cliente = new Cliente(txtNome.Text, txtCpf.Text, txtTelefone.Text);
             lstClientes.Items.Add(cliente.ToString());
             LimparCaixas();
         }
@@ -54,8 +52,11 @@ namespace ControleFinanceiro
                 string[] itens = lstClientes.GetItemText(lstClientes.SelectedItem).Split(" - ");
                 txtNome.Text = itens[0];
                 txtCpf.Text = itens[1];
+                if (txtTelefone.Text.Length > 0)
+                {
+                    txtTelefone.Text = itens[2];
+                }
                 btnExcluir.Enabled = true;
-
             }
         }
 
@@ -68,11 +69,17 @@ namespace ControleFinanceiro
 
                 txtCpf.Clear();
                 txtNome.Clear();
+                txtTelefone.Clear();
 
                 MessageBox.Show("Item Excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnExcluir.Enabled = false;
 
             }
+        }
+
+        private void txtTelefone_TextChanged(object sender, EventArgs e)
+        {
+            VerificarCaixasPreenchidas();
         }
     }
 }

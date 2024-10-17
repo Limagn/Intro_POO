@@ -10,7 +10,14 @@ namespace ControleFinanceiro.Model
     {
         public string Nome {  get;  set; }
         public string Cpf { get; set; }
+        public string Telefone { get; set; }
         public List<Conta> Conta { get; set; }
+        public Cliente(string nome, string cpf, string telefone)
+        {
+            Nome = nome;
+            Cpf = cpf;
+            Telefone = telefone;
+        }
         public Cliente(string nome, string cpf)
         {
             Nome = nome;
@@ -18,7 +25,15 @@ namespace ControleFinanceiro.Model
         }
         public override string ToString()
         {
-            return Nome + " - " + Cpf;
+            if (Telefone == "")
+            {
+                return Nome + " - " + Cpf;
+            }
+            else
+            { 
+                return Nome + " - " + Cpf + " - " + Telefone;
+            }
+
         }
         public decimal SaldoDasContas()
         {
