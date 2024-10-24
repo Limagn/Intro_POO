@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ControleFinanceiro.Model
 {
-    public class Conta
+    public abstract class Conta
     {
         public long Numero { get; set; }
-        public decimal Saldo { get; private set; }
+        public decimal Saldo { get; protected set; }
         public Cliente Titular { get; set; }
         public Conta(long numero)
         {
@@ -22,23 +22,8 @@ namespace ControleFinanceiro.Model
             Titular = titular;
         }
 
-        public void Saque (decimal valor)
-        {
-            if (valor <= Saldo && valor > 0)
-                Saldo -= valor;
-        }
-        public void Deposito (decimal valor)
-        {
-            if (valor > 0) 
-                Saldo += valor;
-        }
-        public void Transferencia(decimal valor, Conta contaDestino)
-        {
-            if (valor <= Saldo && valor > 0)
-            {
-                Saldo -= valor;
-                contaDestino.Deposito(valor);
-            }
-        }
+        public abstract void Saque(decimal valor);
+        public abstract void Deposito(decimal valor);
+        public abstract void Transferencia(decimal valor, Conta contaDestino);
     }
 }

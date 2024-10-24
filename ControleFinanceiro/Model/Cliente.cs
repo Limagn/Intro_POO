@@ -17,7 +17,7 @@ namespace ControleFinanceiro.Model
             Nome = nome;
             Cpf = cpf;
         }
-        public Cliente(string nome, string cpf, string telefone)
+        public Cliente(string nome, string cpf, string telefone) : this(nome, cpf)
         {
             Telefone = telefone;
         }
